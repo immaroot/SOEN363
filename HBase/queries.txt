@@ -1,0 +1,22 @@
+1 - display phone number with more than 5 international calls
+2 - display all phone numbers with more than 300 min at night
+3 - display phone number with more than 150 day calls
+4 - display all phone numbers that sent 0 messages
+5 - Find all phone-number starting by a certain index (example: all number starting by 514 or 619)
+
+1) scan 'phone-data', {COLUMN => 'intl-calls', FILTER => "ValueFilter( >=, 'binary:5')"}
+
+2) scan 'phone-data', {COLUMN => 'night-mins', FILTER => "ValueFilter( >=, 'binary:300')"}
+
+3) scan 'phone-data', {COLUMN => 'day-calls', FILTER => "ValueFilter( <, 'binary:150')"}
+
+4) scan 'phone-data', {COLUMN => 'vmail', FILTER => "ValueFilter( =, 'binary:0')"}
+
+5) scan 'phone-data', {COLUMN => 'phone-number', FILTER => "ValueFilter(=,'regexstring:^777.*')"}
+
+
+
+
+
+
+

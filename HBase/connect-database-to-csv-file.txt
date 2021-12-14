@@ -1,0 +1,13 @@
+1) First run in terminal
+
+> hadoop fs -copyFromLocal {your-location}/Data-file.csv /tmp
+
+2) Create the database table using HBase shell by running the following commands
+
+> hbase shell
+> create 'phone-data','id','phone-number','account-length','vmail','day-mins','day-calls','day-charge','eve-mins','eve-calls','eve-charge','night-mins','night-calls','night-charge','intl-mins','intl-calls','intl-charge','custserv-calls','churn'
+
+3) Import CSV file into HBase table
+
+> hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.separator=',' -Dimporttsv.columns='HBASE_ROW_KEY,phone-number,account-length,vmail,day-mins,day-calls,day-charge,eve-mins,eve-calls,eve-charge,night-mins,night-calls,night-charge,intl-mins,intl-calls,intl-charge,custserv-calls,churn' phone-data /tmp/Data-file.csv
+
